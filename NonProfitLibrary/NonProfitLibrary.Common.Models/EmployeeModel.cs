@@ -14,7 +14,7 @@ namespace NonProfitLibrary.Common.Models
         }
 
         public EmployeeModel(string firstName, string lastName, string email,
-            string password, string phone, string birthDate)
+            string password, string phone, string birthDate, EmployeePosition position)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -22,6 +22,8 @@ namespace NonProfitLibrary.Common.Models
             Password = password;
             Phone = phone;
             BirthDate = birthDate;
+            Position = position;
+
             
         }
     }

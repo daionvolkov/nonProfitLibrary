@@ -20,7 +20,7 @@ namespace NonProfitLibrary.Api.Models
         {
 
             ReaderId = orderModel.ReaderId;
-            CreationDate = orderModel.CreationDate;
+            CreationDate = DateTime.Now;
             Status = orderModel.Status;
         }
 

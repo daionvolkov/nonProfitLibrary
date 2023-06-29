@@ -36,7 +36,8 @@ namespace NonProfitLibrary.Api.Models
                 Password = this.Password, 
                 Phone = this.Phone,
                 BirthDate = this.BirthDate,
-                CreationDate = this.CreationDate,    
+                CreationDate = this.CreationDate,
+                Position = this.Position
             };
         }
     }

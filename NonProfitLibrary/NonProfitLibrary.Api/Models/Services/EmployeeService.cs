@@ -107,5 +107,11 @@ namespace NonProfitLibrary.Api.Models.Services
                 });
             }
         }
+
+        public EmployeeModel Get(int id)
+        {
+            Employee employee = _db.Employee.FirstOrDefault(u => u.Id == id) ?? new Employee();
+            return employee.ToDto();
+        }
     }
 }
