@@ -7,7 +7,7 @@ namespace NonProfitLibrary.Api.Models.Services
 {
     public class BooksService : AbstractionService, ICommonService<BookModel>
     {
-        private ApplicationContext _db;
+       private ApplicationContext _db;
         public BooksService(ApplicationContext db)
         {
             _db = db;
@@ -22,6 +22,17 @@ namespace NonProfitLibrary.Api.Models.Services
                 _db.SaveChanges();
             });
             return result;
+        }
+       
+
+        public bool CreateMultBooks(List<BookModel> bookModels)
+        {
+            return DoAction(delegate ()
+            {
+                var books = bookModels.Select(b => new Book(b));
+                _db.AddRange(books);
+                _db.SaveChanges();
+            });
         }
 
         public bool Delete(int id)

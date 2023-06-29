@@ -51,9 +51,6 @@ namespace NonProfitLibrary.Api.Migrations
                     b.Property<int?>("ReaderId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ReaderId1")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -62,8 +59,6 @@ namespace NonProfitLibrary.Api.Migrations
                     b.HasIndex("OrderId");
 
                     b.HasIndex("ReaderId");
-
-                    b.HasIndex("ReaderId1");
 
                     b.ToTable("Book");
                 });
@@ -116,18 +111,18 @@ namespace NonProfitLibrary.Api.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CustomerId")
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ReaderId")
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int?>("СustomerId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("СustomerId");
+                    b.HasIndex("ReaderId");
 
                     b.ToTable("Order");
                 });
@@ -168,31 +163,31 @@ namespace NonProfitLibrary.Api.Migrations
 
             modelBuilder.Entity("NonProfitLibrary.Api.Models.Book", b =>
                 {
-                    b.HasOne("NonProfitLibrary.Api.Models.Order", null)
-                        .WithMany("OrderBook")
+                    b.HasOne("NonProfitLibrary.Api.Models.Order", "Order")
+                        .WithMany("BookOnOrder")
                         .HasForeignKey("OrderId");
 
-                    b.HasOne("NonProfitLibrary.Api.Models.Reader", null)
+                    b.HasOne("NonProfitLibrary.Api.Models.Reader", "Reader")
+                        .WithMany("TakenBook")
+                        .HasForeignKey("ReaderId");
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Reader");
+                });
+
+            modelBuilder.Entity("NonProfitLibrary.Api.Models.Order", b =>
+                {
+                    b.HasOne("NonProfitLibrary.Api.Models.Reader", "Reader")
                         .WithMany("OrderBook")
                         .HasForeignKey("ReaderId");
 
-                    b.HasOne("NonProfitLibrary.Api.Models.Reader", null)
-                        .WithMany("TakenBook")
-                        .HasForeignKey("ReaderId1");
+                    b.Navigation("Reader");
                 });
 
             modelBuilder.Entity("NonProfitLibrary.Api.Models.Order", b =>
                 {
-                    b.HasOne("NonProfitLibrary.Api.Models.Reader", "Сustomer")
-                        .WithMany()
-                        .HasForeignKey("СustomerId");
-
-                    b.Navigation("Сustomer");
-                });
-
-            modelBuilder.Entity("NonProfitLibrary.Api.Models.Order", b =>
-                {
-                    b.Navigation("OrderBook");
+                    b.Navigation("BookOnOrder");
                 });
 
             modelBuilder.Entity("NonProfitLibrary.Api.Models.Reader", b =>

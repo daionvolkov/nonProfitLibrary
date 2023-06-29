@@ -56,8 +56,8 @@ namespace NonProfitLibrary.Api.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerId = table.Column<int>(type: "int", nullable: true),
-                    СustomerId = table.Column<int>(type: "int", nullable: true),
+                    OrderId = table.Column<int>(type: "int", nullable: true),
+                    ReaderId = table.Column<int>(type: "int", nullable: true),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false)
                 },
@@ -65,8 +65,8 @@ namespace NonProfitLibrary.Api.Migrations
                 {
                     table.PrimaryKey("PK_Order", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Order_Reader_СustomerId",
-                        column: x => x.СustomerId,
+                        name: "FK_Order_Reader_ReaderId",
+                        column: x => x.ReaderId,
                         principalTable: "Reader",
                         principalColumn: "Id");
                 });
@@ -83,9 +83,8 @@ namespace NonProfitLibrary.Api.Migrations
                     Genre = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BookType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsAvailable = table.Column<bool>(type: "bit", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: true),
                     ReaderId = table.Column<int>(type: "int", nullable: true),
-                    ReaderId1 = table.Column<int>(type: "int", nullable: true)
+                    OrderId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -98,11 +97,6 @@ namespace NonProfitLibrary.Api.Migrations
                     table.ForeignKey(
                         name: "FK_Book_Reader_ReaderId",
                         column: x => x.ReaderId,
-                        principalTable: "Reader",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Book_Reader_ReaderId1",
-                        column: x => x.ReaderId1,
                         principalTable: "Reader",
                         principalColumn: "Id");
                 });
@@ -118,14 +112,9 @@ namespace NonProfitLibrary.Api.Migrations
                 column: "ReaderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Book_ReaderId1",
-                table: "Book",
-                column: "ReaderId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Order_СustomerId",
+                name: "IX_Order_ReaderId",
                 table: "Order",
-                column: "СustomerId");
+                column: "ReaderId");
         }
 
         /// <inheritdoc />

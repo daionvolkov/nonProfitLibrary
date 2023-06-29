@@ -16,13 +16,15 @@ namespace NonProfitLibrary.Common.Models
         public string? BookType { get; set; }
         public bool IsAvailable { get; set; }
 
-        public BookModel()
-        {
-        }
+
+        public int ? ReaderId { get; set; }
+        public int? OrderId { get; set; }       
+
+        public BookModel() { }
 
 
         public BookModel(string title, string author, 
-            string description, string genre, string bookType, bool isAvailable)
+            string description, string genre, string bookType, bool isAvailable, int? readerId, int? orderId)
         {
             Title = title;
             Author = author;
@@ -30,6 +32,8 @@ namespace NonProfitLibrary.Common.Models
             Genre = genre;
             BookType = bookType;
             IsAvailable = isAvailable;
+            ReaderId = readerId;
+            OrderId = orderId;
         }
     }
 

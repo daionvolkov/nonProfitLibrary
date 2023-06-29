@@ -9,8 +9,8 @@ namespace NonProfitLibrary.Common.Models
     public class OrderModel
     {
         public int Id { get; set; }
-        public List<int>?  OrderBooksIds { get; set; }
-        public int? CustomerId { get; set; }
+        public List<int>? BookOnOrderIds { get; set; }
+        public int? ReaderId { get; set; }
         public DateTime CreationDate { get; set; }
         public OrderStatus Status { get; set; }
 
@@ -18,13 +18,13 @@ namespace NonProfitLibrary.Common.Models
         {
         }
 
-        public OrderModel(int customerId, DateTime creationDate, 
-            OrderStatus status, List<int>? orderBooksIds =null)
+        public OrderModel(int readerId, DateTime creationDate, 
+            OrderStatus status, List<int>? bookOnOrderIds = null)
         {
-            CustomerId = customerId;
+            ReaderId = readerId;
             CreationDate = creationDate;
             Status = status;
-            OrderBooksIds = orderBooksIds;
+            BookOnOrderIds = bookOnOrderIds;
         }
     }
 }

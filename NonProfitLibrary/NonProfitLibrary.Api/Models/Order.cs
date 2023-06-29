@@ -5,9 +5,13 @@ namespace NonProfitLibrary.Api.Models
     public class Order
     {
         public int Id { get; set; }
-        public List<Book> OrderBook { get; set; } = new List<Book>();
-        public int? CustomerId { get; set; }
-        public Reader? Сustomer { get; set;}
+
+        public int? OrderId { get; set; }
+        public List<Book> BookOnOrder { get; set; } = new List<Book>();
+        
+        public int? ReaderId { get; set; }
+        public Reader? Reader { get; set;}
+        
         public DateTime CreationDate { get; set; }
         public OrderStatus Status { get; set; }
 
@@ -15,7 +19,7 @@ namespace NonProfitLibrary.Api.Models
         public Order(OrderModel orderModel)
         {
 
-            CustomerId = orderModel.CustomerId;
+            ReaderId = orderModel.ReaderId;
             CreationDate = orderModel.CreationDate;
             Status = orderModel.Status;
         }
@@ -26,7 +30,7 @@ namespace NonProfitLibrary.Api.Models
             {
                 Id = this.Id,
                 Status = this.Status, 
-                CustomerId = this.CustomerId,
+                ReaderId = this.ReaderId,
                 CreationDate = this.CreationDate,    
             };
         }

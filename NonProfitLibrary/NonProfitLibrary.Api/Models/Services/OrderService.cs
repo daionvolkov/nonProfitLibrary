@@ -4,9 +4,9 @@ using NonProfitLibrary.Common.Models;
 
 namespace NonProfitLibrary.Api.Models.Services
 {
-    public class OrderService : AbstractionService, ICommonService<OrderModel>
-    {
-        private ApplicationContext _db;
+    public class OrderService : AbstractionService, ICommonService<OrderModel>  
+    { 
+      private ApplicationContext _db;
 
         public OrderService(ApplicationContext db)
         {
@@ -66,9 +66,9 @@ namespace NonProfitLibrary.Api.Models.Services
             foreach (int bookId in booksIds)
             {
                 Book book = _db.Book.FirstOrDefault(b => b.Id == bookId) ?? new Book();
-                if (order.OrderBook.Contains(book) == false)
+                if (order.BookOnOrder.Contains(book) == false)
                 {
-                    order.OrderBook.Add(book);
+                    order.BookOnOrder.Add(book);
                 }
             }
             _db.SaveChanges();
@@ -77,13 +77,13 @@ namespace NonProfitLibrary.Api.Models.Services
 
         public void RemoveBookFromOrder(int id, List<int> booksIds)
         {
-            Order order = _db.Order.Include(o => o.OrderBook).FirstOrDefault(o => o.Id == id) ?? new Order();
+            Order order = _db.Order.Include(o => o.BookOnOrder).FirstOrDefault(o => o.Id == id) ?? new Order();
             foreach (int bookId in booksIds)
             {
                 Book book = _db.Book.FirstOrDefault(b => b.Id == bookId) ?? new Book();
-                if (order.OrderBook.Contains(book))
+                if (order.BookOnOrder.Contains(book))
                 {
-                    order.OrderBook.Remove(book);
+                    order.BookOnOrder.Remove(book);
                 }
             }
             _db.SaveChanges();

@@ -16,7 +16,8 @@ namespace NonProfitLibrary.Common.Models
         public ReaderModel() { }
 
         public ReaderModel(string firstName, string lastName, string email, 
-            string password, string phone, string birthDate,  DateTime registrationDate, List<int>? takenBooksId = null, List<int>? orderBooksId = null)
+            string password, string phone, string birthDate,  
+            DateTime registrationDate, List<int>? takenBooksId = null, List<int>? orderBooksId = null)
         {
             FirstName = firstName; 
             LastName = lastName;
@@ -24,7 +25,6 @@ namespace NonProfitLibrary.Common.Models
             Password = password; 
             Phone = phone;
             BirthDate = birthDate;
-
             RegistrationDate = registrationDate;
             TakenBooksId = takenBooksId;
             OrderBooksId = orderBooksId;

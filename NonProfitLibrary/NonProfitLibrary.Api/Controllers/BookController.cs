@@ -27,11 +27,57 @@ namespace NonProfitLibrary.Api.Controllers
         }
 
 
-
         [HttpGet]
         public async Task<IEnumerable<BookModel>> GetAllBooks()
         {
             return await _bookService.GetAll().ToListAsync();
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetBookById(int id) 
+        {
+            var book = _bookService.GetById(id);
+            return book==null ? NotFound() : Ok(book);
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] BookModel bookModel)
+        {
+            if(bookModel != null) 
+            {
+                var result = _bookService.Create(bookModel);
+                return result ? Ok() : NotFound();
+            }
+            return BadRequest();
+        }
+
+        [HttpPost("all")]
+        public async Task<IActionResult> CreateMultBooks([FromBody] List<BookModel> bookModel)
+        {
+            if (bookModel != null && bookModel.Count > 0)
+            {
+                bool result = _bookService.CreateMultBooks(bookModel);
+                return result ? Ok() : NotFound();
+            }
+            return BadRequest();
+        }
+
+        [HttpPatch("{id}")]
+        public IActionResult Update(int id, [FromBody] BookModel bookModel) 
+        {
+            if(bookModel != null)
+            {
+                bool result = _bookService.Update(id, bookModel);
+                return result ? Ok() : NotFound();
+            }
+            return BadRequest();
+        }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id) 
+        {
+            bool result = _bookService.Delete(id);
+            return result ? Ok() : NotFound();
+        }
+        
     }
 }

@@ -12,7 +12,7 @@ namespace NonProfitLibrary.Api.Models.Abstractions
         public string? BirthDate { get; set; }
         public DateTime CreationDate { get; set; }
 
-        public CommonObject()
+         public CommonObject()
         {
             CreationDate = DateTime.Now;
         }

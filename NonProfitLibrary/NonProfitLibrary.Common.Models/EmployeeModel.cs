@@ -14,15 +14,15 @@ namespace NonProfitLibrary.Common.Models
         }
 
         public EmployeeModel(string firstName, string lastName, string email,
-            string password, string phone, string birthDate, EmployeePosition position)
+            string password, string phone, string birthDate)
         {
-            FirstName = firstName; 
-            LastName = lastName; 
-            Email = email; 
-            Password = password; 
-            Phone = phone; 
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            Password = password;
+            Phone = phone;
             BirthDate = birthDate;
-            Position = position;
+            
         }
     }
 }

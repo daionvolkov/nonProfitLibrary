@@ -21,7 +21,8 @@ namespace NonProfitLibrary.Api.Models
             Password = employeeModel.Password;
             Phone = employeeModel.Phone;
             BirthDate = employeeModel.BirthDate;
-            CreationDate = employeeModel.CreationDate;
+            CreationDate = DateTime.Now;
+            Position = employeeModel.Position;
         }
 
         public EmployeeModel ToDto()

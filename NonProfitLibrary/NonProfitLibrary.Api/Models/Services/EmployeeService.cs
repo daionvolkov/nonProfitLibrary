@@ -5,10 +5,10 @@ using System.Text;
 
 namespace NonProfitLibrary.Api.Models.Services
 {
-    public class EmployeeService : AbstractionService, ICommonService<EmployeeModel>
-    {
+    public class EmployeeService : AbstractionService, ICommonService<EmployeeModel> 
+    { 
     
-        private ApplicationContext _db;
+       private ApplicationContext _db;
         public EmployeeService(ApplicationContext db)
         {
             _db = db;
