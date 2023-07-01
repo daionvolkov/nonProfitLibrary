@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="text-center text-center-main">
+    
+    <h3 class="search_book-title">Найти книгу</h3>
+    <div class="search_block">
+        <input type="radio" name="search_type"  value="title" /> <label>Поиск по названию</label>
+        <input type="radio" name="search_type" value="author" /> <label>Поиск по автору</label><br />
+        <input id="search_input" />
+        <button  id="search_btn">Найти</button>
+    </div>
+
+    
+
+    <div id="table-container">
+        
+    </div>
+
+
+
+</div>

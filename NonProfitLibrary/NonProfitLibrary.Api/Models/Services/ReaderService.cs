@@ -8,9 +8,11 @@ namespace NonProfitLibrary.Api.Models.Services
     public class ReaderService : AbstractionService, ICommonService<ReaderModel>
     {
        private ApplicationContext _db;
+        private readonly BooksService _booksService;
         public ReaderService(ApplicationContext db)
         {
             _db = db;
+            _booksService = new BooksService(db);
         }
 
         public bool Create(ReaderModel model)
@@ -82,6 +84,7 @@ namespace NonProfitLibrary.Api.Models.Services
                 if (reader.TakenBook.Contains(book) == false)
                 {
                     reader.TakenBook.Add(book);
+                    _booksService.UpdateIsAvailable(book.Id);
                 }
             }
             _db.SaveChanges();
@@ -96,6 +99,7 @@ namespace NonProfitLibrary.Api.Models.Services
                 if (reader.TakenBook.Contains(book))
                 {
                     reader.TakenBook.Remove(book);
+                    _booksService.UpdateIsAvailable(bookId);
                 }
             }
             _db.SaveChanges();

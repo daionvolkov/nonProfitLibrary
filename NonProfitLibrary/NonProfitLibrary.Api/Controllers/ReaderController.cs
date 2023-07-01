@@ -13,6 +13,7 @@ namespace NonProfitLibrary.Api.Controllers
     {
         private readonly ApplicationContext _db;
         private readonly ReaderService _readerService;
+        private readonly BooksService _booksService;
 
         public ReaderController(ApplicationContext db)
         {
@@ -69,6 +70,7 @@ namespace NonProfitLibrary.Api.Controllers
             if(takenBooksId != null)
             {
                 _readerService.AddBookAsTaken(id, takenBooksId);
+               
                 return Ok();
             }
             return BadRequest();

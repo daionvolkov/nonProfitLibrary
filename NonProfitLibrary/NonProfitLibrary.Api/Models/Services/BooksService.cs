@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NonProfitLibrary.Api.Models.Abstractions;
 using NonProfitLibrary.Common.Models;
 using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
@@ -58,6 +59,25 @@ namespace NonProfitLibrary.Api.Models.Services
                 book.BookType = model.BookType;
                 book.IsAvailable = model.IsAvailable;
 
+                _db.Book.Update(book);
+                _db.SaveChanges();
+            });
+            return result;
+        }
+
+        public bool UpdateIsAvailable(int id)
+        {
+            bool result = DoAction(delegate ()
+            {
+                Book book = _db.Book.FirstOrDefault(b => b.Id == id) ?? new Book();
+                if (book.IsAvailable == true)
+                {
+                    book.IsAvailable = false;
+                }
+                else
+                {
+                    book.IsAvailable = true;
+                }
                 _db.Book.Update(book);
                 _db.SaveChanges();
             });

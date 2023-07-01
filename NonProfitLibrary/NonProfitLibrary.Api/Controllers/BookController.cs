@@ -40,6 +40,22 @@ namespace NonProfitLibrary.Api.Controllers
             return book==null ? NotFound() : Ok(book);
         }
 
+        [HttpGet("{title}/title")]
+        public IActionResult GetBookByTitle(string title)
+        {
+            var book = _bookService.GetByTitle(title);
+            return book == null ? NotFound() : Ok(book);
+        }
+
+
+        [HttpGet("{author}/author")]
+        public IActionResult GetBookByAuthor(string author)
+        {
+            var book = _bookService.GetByAuthor(author);
+            return book == null ? NotFound() : Ok(book);
+        }
+
+
         [HttpPost]
         public IActionResult Create([FromBody] BookModel bookModel)
         {
