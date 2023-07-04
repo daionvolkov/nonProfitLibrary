@@ -9,15 +9,17 @@
     margin-top: 20px;
     border: 1px solid #042F91;
     background-color: #D8E4FD;
+    
 }
 
 #search_input {
     width: 250px;
-    height:40px;
+    height: 40px;
     border-radius: 7px;
+    padding-left: 7px;
 }
 
-#search_btn {
+#search_btn{
     height: 40px;
     width: 120px;
     border-radius: 7px;
@@ -25,8 +27,16 @@
     background-color: #CAD9FA;
 }
 
+.card {
+    display:none;
+}
+.card-show {
+    display: block;
+}
+
 #table-container {
     margin-top: 40px;
+    display:none;
 }
 
 #table-container table, th, td {
@@ -40,7 +50,59 @@
     #table-container .card {
         background-color: #D8E4FD;
         width: 300px;
-        padding: 10px 15px;
+        padding: 10px 15px 40px 10px;
         border-radius: 10px;
         text-align: left;
     }
+.main-block button {
+    height: 40px;
+    width: 220px;
+    border-radius: 7px;
+    border: 1px solid #042F91;
+    background-color: #CAD9FA;
+}
+.book-btn-order {
+    margin-top: 10px;
+}
+.main-block {
+    display: flex;
+    justify-content: space-around;
+}
+
+#dialog {
+    display: none;
+    margin: 45px 0 0 50px;
+    border: 1px solid #042F91;
+    padding: 10px 10px 10px 10px;
+    border-radius: 7px;
+    background-color: #D8E4FD;
+}
+    #dialog button {
+        height: 40px;
+        width: 100px;
+        border-radius: 7px;
+        border: 1px solid #042F91;
+        background-color: #CAD9FA;
+        margin-top:10px;
+    }
+.dialog-show {
+    display: flex;
+}
+
+#dialog input {
+    height: 40px;
+    width: 220px;
+    margin-top: 20px;
+    border: 1px solid #042F91;
+    background-color: #D8E4FD;
+    border-radius: 7px;
+    padding: 7px;
+}
+
+.dialog-btn {
+    height: 40px;
+    width: 220px;
+    border-radius: 7px;
+    border: 1px solid #042F91;
+    background-color: #CAD9FA;
+}

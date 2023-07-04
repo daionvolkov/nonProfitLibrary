@@ -24,6 +24,8 @@ namespace NonProfitLibrary.Api.Models
             CreationDate = DateTime.Now;
            
         }
+    
+
 
         public ReaderModel ToDto()
         {

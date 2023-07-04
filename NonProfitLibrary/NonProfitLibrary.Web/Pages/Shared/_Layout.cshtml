@@ -26,6 +26,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Order">Заказы</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AddBook">Добавить книгу</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -44,8 +47,13 @@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="//code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script type="module" src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/addbook.js" ></script>
+    <script type="module" src="~/js/functions/TakenBookFunc.js"></script>
+    <script type="module" src="~/js/functions/ReturnBookFunc.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

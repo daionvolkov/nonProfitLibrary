@@ -8,18 +8,40 @@
     
     <h3 class="search_book-title">Найти книгу</h3>
     <div class="search_block">
-        <input type="radio" name="search_type"  value="title" /> <label>Поиск по названию</label>
+        <input type="radio" name="search_type"  value="title" checked/> <label>Поиск по названию</label>
         <input type="radio" name="search_type" value="author" /> <label>Поиск по автору</label><br />
         <input id="search_input" />
         <button  id="search_btn">Найти</button>
     </div>
 
     
+    <div class="main-block">
+        <div id="table-container">
+            <div class="card">
+               <h3 class="book-title"></h3>
+                <p class="book-author"></p>
+                <p class="book-description"></p>
+                <p class="book-genre"></p>
+                <p class="book-type"></p>
+                <p class="book-isAvailible" id="isAvailible"></p> <br />  
 
-    <div id="table-container">
-        
+                <button></button>
+                <button></button>
+
+            </div>
+
+        </div>
+
+        <div id="dialog">
+            <h5>Введите email читателя</h5>
+            <input type="text" id="email" placeholder="Введите email"/>
+            <div class="dialog-btn-block">
+                <button id="saveButton">Взять</button>
+                <button id="cancelButton">Отмена</button>
+            </div>
+
+        </div>
+    
     </div>
-
-
 
 </div>

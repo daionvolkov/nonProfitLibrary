@@ -34,6 +34,13 @@ namespace NonProfitLibrary.Api.Controllers
             return reader==null ? NoContent() : Ok(reader);
         }
 
+        [HttpGet("{email}/email")]
+        public IActionResult GetReaderByEmail(string email)
+        {
+            var reader = _readerService.GetByEmail(email);
+            return reader == null ? NoContent() : Ok(reader);
+        }
+
         [HttpPost]
         public IActionResult Create([FromBody] ReaderModel readerModel)
         {

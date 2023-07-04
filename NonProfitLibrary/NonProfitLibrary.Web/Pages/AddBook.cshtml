@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Добавить книгу";
+}
+
+<h3 class="search_book-title">Добавить книгу</h3>
+
+<div class="addbook-block">
+    <div class="addbook-block-part1">
+        <input id="titleInput" placeholder="Название" />
+        <input id="authorInput" placeholder="Автор" />
+        <input id="descriptionInput" placeholder="Описание" />
+    </div>
+    <div class="addbook-block-part2">
+        <input id="genreInput" placeholder="Жанр" />
+        <input id="bookTypeInput" placeholder="Тип издания" />
+
+    </div>
+    <button id="addBookSaveBtn">Сохранить</button>
+
+</div>

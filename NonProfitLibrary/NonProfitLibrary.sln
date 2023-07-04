@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NonProfitLibrary.Api", "Non
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NonProfitLibrary.Common.Models", "NonProfitLibrary.Common.Models\NonProfitLibrary.Common.Models.csproj", "{D28FCB6C-E16A-4481-B01D-B39700ED7A81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NonProfitLibrary.Web", "NonProfitLibrary.Web\NonProfitLibrary.Web.csproj", "{91A45B5F-B074-4676-833C-26FFA53CA637}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NonProfitLibrary.Web", "NonProfitLibrary.Web\NonProfitLibrary.Web.csproj", "{91A45B5F-B074-4676-833C-26FFA53CA637}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

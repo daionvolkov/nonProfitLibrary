@@ -1,0 +1,36 @@
+﻿.addbook-block {
+    margin-top: 50px;
+    display: flex;
+}
+.addbook-block-part1,
+.addbook-block-part2 {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+    .addbook-block-part2 select {
+        border-radius: 10px;
+        height: 40px;
+        border: 1px solid #042F91;
+        background-color: #D8E4FD;
+    }
+
+.addbook-block input {
+    width: 250px;
+    height: 40px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    border: 1px solid #042F91;
+    background-color: #D8E4FD;
+    padding-left: 10px;
+}
+
+#addBookSaveBtn {
+    height: 40px;
+    width: 250px;
+    border-radius: 7px;
+    border: 1px solid #042F91;
+    background-color: #CAD9FA;
+    margin-top: 20px;
+}

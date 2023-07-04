@@ -75,6 +75,13 @@ namespace NonProfitLibrary.Api.Models.Services
             return readerModel;
         }
 
+        public ReaderModel GetByEmail(string email)
+        {
+            Reader reader = _db.Reader.FirstOrDefault(r=>r.Email == email);
+            var result = reader?.ToDto();
+            return result;
+        }
+
         public void AddBookAsTaken(int id, List<int> booksIds)
         {
             Reader reader = _db.Reader.FirstOrDefault(r => r.Id == id) ?? new Reader();

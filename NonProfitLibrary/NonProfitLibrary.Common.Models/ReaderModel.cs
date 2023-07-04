@@ -29,5 +29,7 @@ namespace NonProfitLibrary.Common.Models
             TakenBooksId = takenBooksId;
             OrderBooksId = orderBooksId;
         }
+
+       
     }
 }
